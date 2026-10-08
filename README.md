@@ -16,7 +16,7 @@
 | `clinic-immune.html` | 면역력 |
 | `privacy.html` · `terms.html` · `sitemap.html` | 개인정보 처리방침 · 이용약관 · 사이트맵 |
 | `styles.css` · `fonts/` | 공통 스타일 · Pretendard 글꼴 |
-| `robots.txt` · `sitemap.xml` | 검색엔진용 수집 규칙 · 페이지 목록 (sitemap.xml은 빌더가 자동 생성) |
+| `robots.txt` · `sitemap.xml` · `llms.txt` | 검색엔진·AI 크롤러 수집 허용 · 페이지 목록 · AI용 사이트 요약 (sitemap.xml·llms.txt는 빌더가 자동 생성) |
 | `blog/` · `tools/build_blog.py` | 건강정보 글 · 글 생성 도구 |
 | `img/` | 사진 · 아이콘 · 로고 |
 

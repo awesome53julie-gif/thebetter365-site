@@ -1,3 +1,27 @@
+# 더나은365한의원 — 검색엔진과 AI 크롤러 모두 수집을 허용합니다.
+# 목적: 검색 노출 + AI 답변의 출처/학습 데이터로 활용될 수 있도록
+
+# 검색엔진
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Yeti
+User-agent: Daumoa
+# AI 답변(실시간 검색·인용)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+# AI 학습 데이터
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: meta-externalagent
+Allow: /
+
 User-agent: *
 Allow: /
 

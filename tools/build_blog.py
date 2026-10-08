@@ -282,6 +282,23 @@ def build():
         f"""<li class="post-card"><a href="blog/{p['slug']}.html"><span class="cat">{html.escape(p.get('category', '글'))}</span><h3 style="font-size:20px;font-weight:900;margin:14px 0 8px;line-height:1.4">{html.escape(p['title'])}</h3><p>{html.escape(p['description'])}</p></a></li>""" for p in posts[:3]))
     fill("sitemap.html", "blog-list", "".join(f'<li><a href="blog/{p["slug"]}.html">{html.escape(p["title"])}</a></li>' for p in posts))
 
+    # llms.txt (AI용 사이트 요약)
+    lines = ["# 더나은365한의원", "",
+             "> 대구광역시 달서구 성서 이곡동(계대동문로 124, 2층, 국민연금네거리 iM뱅크 이곡동지점 2층)의 한의원. "
+             "한의사 7명이 365일 점심시간 없이 진료한다. 평일 09:00–20:00, 토·일·공휴일 09:00–15:00. 무료주차 31대. 전화 053-581-0175.", "",
+             "## 병원 안내",
+             f"- [메인: 진료시간·의료진·오시는 길·자주 묻는 질문]({DOMAIN}/)",
+             f"- [핵심 진료철학 (유덕순 대표원장)]({DOMAIN}/mission.html)", "",
+             "## 진료",
+             f"- [교통사고 후유증 (자동차보험 진료)]({DOMAIN}/clinic-traffic.html)",
+             f"- [통증치료 (목·어깨·허리·무릎)]({DOMAIN}/clinic-pain.html)",
+             f"- [추나치료 (척추·골반, 건강보험 적용)]({DOMAIN}/clinic-chuna.html)",
+             f"- [다이어트 (체질 맞춤 한약)]({DOMAIN}/clinic-diet.html)",
+             f"- [면역력 (체질 보약)]({DOMAIN}/clinic-immune.html)", "",
+             "## 건강정보"]
+    lines += [f"- [{p['title']}]({DOMAIN}/blog/{p['slug']}.html): {p['description']}" for p in posts]
+    (ROOT / "llms.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
     # sitemap.xml
     x = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     newest = posts[0]["updated"] if posts else None
