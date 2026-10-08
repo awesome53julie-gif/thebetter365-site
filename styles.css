@@ -461,3 +461,13 @@ section[aria-labelledby="wall-title"] .wrap>.eyebrow,section[aria-labelledby="wa
 section[aria-labelledby="wall-title"] .wrap>.eyebrow{margin-bottom:16px}
 
 .h-kicker{display:block;font-size:clamp(15px,1.6vw,18px);font-weight:800;letter-spacing:-.01em;color:var(--ink);margin-bottom:14px}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hours th{padding:9px 0;border-bottom:1px dashed var(--line);text-align:left;font-weight:400}
+.summary-def{font-size:18px;line-height:1.75;max-width:820px;margin:18px 0 0}
+.summary{width:100%;border-collapse:collapse;margin-top:28px;border-top:1.5px solid var(--ink);font-size:16px}
+.summary th,.summary td{padding:15px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;line-height:1.6}
+.summary th{width:26%;min-width:96px;font-weight:800;background:var(--soft);white-space:nowrap}
+@media (max-width:520px){.summary{font-size:15px}.summary th,.summary td{padding:12px 8px}.summary th{white-space:normal}}
+aside>section.other{border-top:1px solid var(--line)}
+.cell-list{margin:0;padding-left:1.1em}.cell-list li{margin:2px 0}

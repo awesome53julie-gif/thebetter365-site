@@ -44,7 +44,7 @@
    "closes": "15:00"
   }
  ],
- "medicalSpecialty": "Traditional Korean Medicine",
+ "medicalSpecialty": "한방(한의학)",
  "hasMap": "https://map.naver.com/p/entry/place/1649181334",
  "amenityFeature": [
   {
@@ -111,7 +111,34 @@
   "@type": "Person",
   "name": "유덕순",
   "jobTitle": "대표원장"
- }
+ },
+ "employee": [
+  {
+   "@type": "Person",
+   "name": "유덕순",
+   "jobTitle": "대표원장 · 한의사"
+  },
+  {
+   "@type": "Person",
+   "name": "김제범",
+   "jobTitle": "한의사"
+  },
+  {
+   "@type": "Person",
+   "name": "이다영",
+   "jobTitle": "한의사"
+  },
+  {
+   "@type": "Person",
+   "name": "이시우",
+   "jobTitle": "한의사"
+  },
+  {
+   "@type": "Person",
+   "name": "황태형",
+   "jobTitle": "한의사"
+  }
+ ]
 }
 </script>
 <script type="application/ld+json">
@@ -125,6 +152,78 @@
  "publisher": {
   "@id": "https://thebetter365ss.kr/#clinic"
  }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "일요일에도 진료하나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "네. 토요일, 일요일, 공휴일 모두 오전 9시부터 오후 3시까지 진료합니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "평일에는 몇 시까지 진료하나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "평일(월–금)은 오전 9시부터 저녁 8시까지 매일 야간진료를 합니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "점심시간이 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "점심시간 없이 365일 계속 진료합니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "주차할 수 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "건물에 무료주차 31대가 가능하며 SUV도 주차할 수 있습니다. 건물 뒤편 주차장 입구로 들어오시면 주차 후 한의원으로 바로 연결됩니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "대중교통으로는 어떻게 가나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "버스는 성서우방타운 건너편 정류장에서 내리면 바로 앞 건물입니다(405, 503, 527, 564, 달서3, 달서5, 급행5). 지하철은 2호선 성서산업단지역 8번 출구에서 걸어서 약 6분입니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "교통사고 치료도 자동차보험으로 받을 수 있나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "네. 교통사고 후유증은 자동차보험으로 진료합니다. 접수할 때 보험사 접수번호를 알려주세요."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "추나치료는 건강보험이 되나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "추나요법은 조건에 따라 건강보험이 적용됩니다. 적용 여부와 본인부담금은 진료 때 안내해 드립니다."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "예약은 어떻게 하나요?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "전화 053-581-0175로 예약하거나 문의하실 수 있습니다."
+   }
+  }
+ ]
 }
 </script>
 <link rel="canonical" href="https://thebetter365ss.kr/">
@@ -169,7 +268,7 @@
       <img class="mark-img" src="img/logo-mark.png" width="360" height="356" alt="더나은365한의원 로고">
       <span class="name"><b>더나은<em>365</em>한의원</b><small>성서이곡</small></span>
     </a>
-    <span class="status" id="status"><b>진료중</b> <span id="statusText">20:00 진료 종료</span></span>
+    <span class="status" id="status"><b>진료시간</b> <span id="statusText">평일 09–20시 · 주말 09–15시</span></span>
 
     <ul class="gnb">
       <li><a href="mission.html">핵심 진료철학</a></li>
@@ -183,7 +282,7 @@
       <li><a href="#doctors">의료진</a></li>
       <li><a href="#visit">안내</a>
         <div class="drop"><ul>
-          <li><a href="#hours">진료시간</a></li><li><a href="#tour">한의원 둘러보기</a></li><li><a href="#visit">오시는 길</a></li></ul></div></li>
+          <li><a href="#hours">진료시간</a></li><li><a href="#tour">한의원 둘러보기</a></li><li><a href="#faq">자주 묻는 질문</a></li><li><a href="#visit">오시는 길</a></li></ul></div></li>
     </ul>
     <a class="btn primary cta-top" href="tel:053-581-0175">진료 예약하기 →</a>
     <button class="burger" id="openMenu" aria-label="전체 메뉴 열기" aria-controls="sheet" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
@@ -201,7 +300,7 @@
       <a href="clinic-traffic.html">교통사고 후유증</a><a href="clinic-pain.html">통증치료</a><a href="clinic-chuna.html">추나치료</a><a href="clinic-diet.html">다이어트</a><a href="clinic-immune.html">면역력</a>
     </div></details>
     <a href="#doctors">의료진</a>
-    <details><summary>안내</summary><div class="sub"><a href="#hours">진료시간</a><a href="#tour">한의원 둘러보기</a><a href="#visit">오시는 길</a></div></details>
+    <details><summary>안내</summary><div class="sub"><a href="#hours">진료시간</a><a href="#tour">한의원 둘러보기</a><a href="#faq">자주 묻는 질문</a><a href="#visit">오시는 길</a></div></details>
     <a class="go" href="tel:053-581-0175">진료 예약하기 →</a>
   </nav>
 </div>
@@ -212,7 +311,7 @@
     <div class="wrap hero-grid">
       <div>
         <span class="pill"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>성서이곡 · 국민연금네거리 iM뱅크 2층</span>
-        <h1 class="h-main"><span class="h-kicker">대구 성서 이곡동 한의원 · 더나은365한의원</span><span class="box">한의사 7인 진료</span></h1>
+        <h1 class="h-main"><span class="h-kicker">대구 성서 이곡동 한의원 · 더나은365한의원</span> <span class="box">한의사 7인 진료</span></h1>
         <p class="h-sub"><span class="box">점심시간 없이</span><br>계속 진료합니다.</p>
         <p class="h-tag">365일 점심시간 없이 진료</p>
         <div class="cta">
@@ -242,6 +341,27 @@
           <p>* <mark>점심시간 없이</mark> 계속 진료합니다.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="summary" aria-labelledby="summary-title">
+    <div class="wrap">
+      <p class="eyebrow">한눈에 보기</p>
+      <h2 id="summary-title" style="font-size:clamp(28px,3.6vw,42px);font-weight:900">더나은365한의원 한눈에 보기</h2>
+      <p class="summary-def"><strong>더나은365한의원</strong>은 대구광역시 달서구 성서 이곡동(국민연금네거리 iM뱅크 이곡동지점 2층)에 있는 한의원입니다. 한의사 7명이 365일 점심시간 없이 진료하며, 평일은 저녁 8시, 토·일·공휴일은 오후 3시까지 진료합니다.</p>
+      <table class="summary">
+        <caption class="sr-only">더나은365한의원 기본 정보</caption>
+        <tr><th scope="row">위치</th><td>대구광역시 달서구 계대동문로 124, 2층 (성서 이곡동, 국민연금네거리 iM뱅크 이곡동지점 2층)</td></tr>
+        <tr><th scope="row">평일 진료</th><td>월–금 09:00 – 20:00 (매일 야간진료)</td></tr>
+        <tr><th scope="row">주말 · 공휴일</th><td>토 · 일 · 공휴일 09:00 – 15:00</td></tr>
+        <tr><th scope="row">점심시간</th><td>없음</td></tr>
+        <tr><th scope="row">의료진</th><td>한의사 7명 (대표원장 유덕순)</td></tr>
+        <tr><th scope="row">대표 진료</th><td><a href="clinic-traffic.html">교통사고 후유증</a> · <a href="clinic-pain.html">통증치료</a> · <a href="clinic-chuna.html">추나치료</a> · <a href="clinic-diet.html">다이어트</a> · <a href="clinic-immune.html">면역력(체질 보약)</a></td></tr>
+        <tr><th scope="row">보험</th><td>교통사고 자동차보험 진료, 추나요법 건강보험 적용(조건에 따라)</td></tr>
+        <tr><th scope="row">주차</th><td>무료주차 31대 (SUV 가능)</td></tr>
+        <tr><th scope="row">대중교통</th><td>버스: 성서우방타운 건너편 하차 · 지하철: 2호선 성서산업단지역 8번 출구 도보 약 6분</td></tr>
+        <tr><th scope="row">전화 · 예약</th><td><a href="tel:053-581-0175">053-581-0175</a></td></tr>
+      </table>
     </div>
   </section>
 
@@ -288,7 +408,7 @@
   <section id="tour">
     <div class="wrap">
       <p class="eyebrow">한의원 둘러보기</p>
-      <h2 style="font-size:clamp(28px,3.6vw,42px);font-weight:900">실제 진료 모습을 먼저 보여드립니다</h2>
+      <h2 style="font-size:clamp(28px,3.6vw,42px);font-weight:900">한의원 둘러보기 · 실제 진료 공간과 모습</h2>
       <p class="lead">연출이 아닌 더나은365한의원의 실제 진료 공간과 진료 장면입니다.</p>
       <div class="gallery">
         <figure class="g-big"><img src="img/treatment-room.jpg" width="1400" height="1050" loading="lazy" alt="추나 테이블과 견인 치료 장비가 놓인 더나은365한의원 추나 치료실에서 한의사 두 명이 환자를 치료하는 모습"><figcaption>추나 치료실</figcaption></figure>
@@ -303,7 +423,7 @@
   <section id="doctors">
     <div class="wrap">
       <p class="eyebrow">의료진</p>
-      <h2 style="font-size:clamp(28px,3.6vw,42px);font-weight:900">환자 한 분을 여러 명의 한의사가 함께 봅니다</h2>
+      <h2 style="font-size:clamp(28px,3.6vw,42px);font-weight:900">의료진 · 한의사 7명이 함께 진료합니다</h2>
       <div class="team-band">
         <p class="wordmark"><span class="wm-pill">성서이곡</span><span class="wm-name">더나은<b>365</b>한의원</span></p>
         <p class="big-num"><strong>7</strong><span>명의<br>한의사</span></p>
@@ -312,7 +432,7 @@
       <div class="doc">
         <figure class="portrait"><img src="img/dr-yudeoksun.jpg" width="900" height="1125" alt="더나은365한의원 대표원장 유덕순 한의사 프로필 사진, 흰 가운과 남색 넥타이 차림"></figure>
         <div>
-          <h3>유덕순<small>대표원장</small></h3>
+          <h3>유덕순 <small>대표원장</small></h3>
           <p class="lead">"아픈 곳만 보지 않고, 그 사람의 하루를 봅니다."</p>
           <ul>
             <li><span class="ph">(학력 입력)</span></li>
@@ -324,13 +444,21 @@
       </div>
   <h3 class="team-title">함께 진료하는 한의사</h3>
       <div class="docs">
-        <figure><img src="img/dr-kimjebeom.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 김제범 한의사 프로필 사진"><figcaption><small>한의사</small>김제범</figcaption></figure>
-        <figure><img src="img/dr-leedayoung.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 이다영 한의사 프로필 사진"><figcaption><small>한의사</small>이다영</figcaption></figure>
-        <figure><img src="img/dr-leesiwoo.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 이시우 한의사 프로필 사진"><figcaption><small>한의사</small>이시우</figcaption></figure>
-        <figure><img src="img/dr-hwangtaehyung.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 황태형 한의사 프로필 사진"><figcaption><small>한의사</small>황태형</figcaption></figure>
-        <figure><img src="img/dr-a.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 한의사 프로필 사진, 둥근 안경과 검정 넥타이 차림"><figcaption><small>한의사</small><span class="ph">(이름 확인)</span></figcaption></figure>
-        <figure><img src="img/dr-b.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 한의사 프로필 사진, 패턴 넥타이 차림"><figcaption><small>한의사</small><span class="ph">(이름 확인)</span></figcaption></figure>
+        <figure><img src="img/dr-kimjebeom.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 김제범 한의사 프로필 사진"><figcaption><small>한의사</small> 김제범</figcaption></figure>
+        <figure><img src="img/dr-leedayoung.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 이다영 한의사 프로필 사진"><figcaption><small>한의사</small> 이다영</figcaption></figure>
+        <figure><img src="img/dr-leesiwoo.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 이시우 한의사 프로필 사진"><figcaption><small>한의사</small> 이시우</figcaption></figure>
+        <figure><img src="img/dr-hwangtaehyung.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 황태형 한의사 프로필 사진"><figcaption><small>한의사</small> 황태형</figcaption></figure>
+        <figure><img src="img/dr-a.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 한의사 프로필 사진, 둥근 안경과 검정 넥타이 차림"><figcaption><small>한의사</small> <span class="ph">(이름 확인)</span></figcaption></figure>
+        <figure><img src="img/dr-b.jpg" width="900" height="1125" loading="lazy" alt="더나은365한의원 한의사 프로필 사진, 패턴 넥타이 차림"><figcaption><small>한의사</small> <span class="ph">(이름 확인)</span></figcaption></figure>
       </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <p class="eyebrow">자주 묻는 질문</p>
+      <h2 id="faq-title" style="font-size:clamp(28px,3.6vw,42px);font-weight:900">더나은365한의원 자주 묻는 질문</h2>
+      <div class="faq"><details><summary>일요일에도 진료하나요?</summary><p>네. 토요일, 일요일, 공휴일 모두 오전 9시부터 오후 3시까지 진료합니다.</p></details><details><summary>평일에는 몇 시까지 진료하나요?</summary><p>평일(월–금)은 오전 9시부터 저녁 8시까지 매일 야간진료를 합니다.</p></details><details><summary>점심시간이 있나요?</summary><p>점심시간 없이 365일 계속 진료합니다.</p></details><details><summary>주차할 수 있나요?</summary><p>건물에 무료주차 31대가 가능하며 SUV도 주차할 수 있습니다. 건물 뒤편 주차장 입구로 들어오시면 주차 후 한의원으로 바로 연결됩니다.</p></details><details><summary>대중교통으로는 어떻게 가나요?</summary><p>버스는 성서우방타운 건너편 정류장에서 내리면 바로 앞 건물입니다(405, 503, 527, 564, 달서3, 달서5, 급행5). 지하철은 2호선 성서산업단지역 8번 출구에서 걸어서 약 6분입니다.</p></details><details><summary>교통사고 치료도 자동차보험으로 받을 수 있나요?</summary><p>네. 교통사고 후유증은 자동차보험으로 진료합니다. 접수할 때 보험사 접수번호를 알려주세요.</p></details><details><summary>추나치료는 건강보험이 되나요?</summary><p>추나요법은 조건에 따라 건강보험이 적용됩니다. 적용 여부와 본인부담금은 진료 때 안내해 드립니다.</p></details><details><summary>예약은 어떻게 하나요?</summary><p>전화 053-581-0175로 예약하거나 문의하실 수 있습니다.</p></details></div>
     </div>
   </section>
 
@@ -354,8 +482,10 @@
           <div class="hours">
             <h3>진료시간 <small>365일 · 점심시간 없음</small></h3>
             <table>
-              <tr><td>평일</td><td>09:00 – 20:00</td></tr>
-              <tr><td>토 · 일 · 공휴일</td><td>09:00 – 15:00</td></tr>
+              <caption class="sr-only">더나은365한의원 진료시간</caption>
+              <tr><th scope="row">평일 (월–금)</th><td>09:00 – 20:00</td></tr>
+              <tr><th scope="row">토 · 일 · 공휴일</th><td>09:00 – 15:00</td></tr>
+              <tr><th scope="row">점심시간</th><td>없음</td></tr>
             </table>
           </div>
           <dl>
