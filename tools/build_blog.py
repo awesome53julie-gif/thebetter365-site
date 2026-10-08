@@ -310,6 +310,8 @@ def build():
     x.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(x) + "\n", encoding="utf-8")
     print(f"글 {len(posts)}개 생성 → blog/, sitemap.xml 갱신")
+    import subprocess
+    subprocess.run([sys.executable, str(ROOT / "tools" / "check_site.py")])
 
 
 if __name__ == "__main__":
