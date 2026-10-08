@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thebetter365ss.kr/sitemap.xml
