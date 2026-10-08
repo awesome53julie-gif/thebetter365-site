@@ -8,135 +8,212 @@
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
- "@type": "MedicalClinic",
- "name": "더나은365한의원",
- "description": "대구 달서구 한의원. 한의사 7명 진료, 365일 점심시간 없이 진료, 평일 매일 야간진료.",
- "url": "https://thebetter365ss.kr",
- "telephone": "+82-53-581-0175",
- "address": {
-  "@type": "PostalAddress",
-  "streetAddress": "계대동문로 124, 2층",
-  "addressLocality": "달서구",
-  "addressRegion": "대구광역시",
-  "addressCountry": "KR"
- },
- "openingHoursSpecification": [
+ "@graph": [
   {
-   "@type": "OpeningHoursSpecification",
-   "dayOfWeek": [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday"
+   "@type": "MedicalClinic",
+   "name": "더나은365한의원",
+   "description": "대구 달서구 한의원. 한의사 7명 진료, 365일 점심시간 없이 진료, 평일 매일 야간진료.",
+   "url": "https://thebetter365ss.kr",
+   "telephone": "+82-53-581-0175",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "계대동문로 124, 2층",
+    "addressLocality": "달서구",
+    "addressRegion": "대구광역시",
+    "addressCountry": "KR"
+   },
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+     ],
+     "opens": "09:00",
+     "closes": "20:00"
+    },
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Saturday",
+      "Sunday",
+      "PublicHolidays"
+     ],
+     "opens": "09:00",
+     "closes": "15:00"
+    }
    ],
-   "opens": "09:00",
-   "closes": "20:00"
-  },
-  {
-   "@type": "OpeningHoursSpecification",
-   "dayOfWeek": [
-    "Saturday",
-    "Sunday",
-    "PublicHolidays"
+   "medicalSpecialty": "한방(한의학)",
+   "hasMap": "https://map.naver.com/p/entry/place/1649181334",
+   "amenityFeature": [
+    {
+     "@type": "LocationFeatureSpecification",
+     "name": "무료주차 31대",
+     "value": true
+    }
    ],
-   "opens": "09:00",
-   "closes": "15:00"
-  }
- ],
- "medicalSpecialty": "한방(한의학)",
- "hasMap": "https://map.naver.com/p/entry/place/1649181334",
- "amenityFeature": [
-  {
-   "@type": "LocationFeatureSpecification",
-   "name": "무료주차 31대",
-   "value": true
-  }
- ],
- "@id": "https://thebetter365ss.kr/#clinic",
- "alternateName": [
-  "더나은365한의원 성서이곡",
-  "성서 더나은365한의원"
- ],
- "image": [
-  "https://thebetter365ss.kr/img/og-image.jpg",
-  "https://thebetter365ss.kr/img/treatment-room.jpg"
- ],
- "logo": "https://thebetter365ss.kr/img/logo-mark.png",
- "sameAs": [
-  "https://map.naver.com/p/entry/place/1649181334"
- ],
- "areaServed": [
-  {
-   "@type": "City",
-   "name": "대구광역시"
+   "@id": "https://thebetter365ss.kr/#clinic",
+   "alternateName": [
+    "더나은365한의원 성서이곡",
+    "성서 더나은365한의원"
+   ],
+   "image": [
+    "https://thebetter365ss.kr/img/og-image.jpg",
+    "https://thebetter365ss.kr/img/treatment-room.jpg"
+   ],
+   "logo": "https://thebetter365ss.kr/img/logo-mark.png",
+   "sameAs": [
+    "https://map.naver.com/p/entry/place/1649181334"
+   ],
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "대구광역시"
+    },
+    {
+     "@type": "Place",
+     "name": "대구 달서구 성서"
+    },
+    {
+     "@type": "Place",
+     "name": "대구 달서구 이곡동"
+    }
+   ],
+   "availableService": [
+    {
+     "@type": "MedicalTherapy",
+     "name": "교통사고 후유증 치료",
+     "url": "https://thebetter365ss.kr/clinic-traffic.html"
+    },
+    {
+     "@type": "MedicalTherapy",
+     "name": "통증치료",
+     "url": "https://thebetter365ss.kr/clinic-pain.html"
+    },
+    {
+     "@type": "MedicalTherapy",
+     "name": "추나치료",
+     "url": "https://thebetter365ss.kr/clinic-chuna.html"
+    },
+    {
+     "@type": "MedicalTherapy",
+     "name": "한방 다이어트",
+     "url": "https://thebetter365ss.kr/clinic-diet.html"
+    },
+    {
+     "@type": "MedicalTherapy",
+     "name": "면역력·체질 보약",
+     "url": "https://thebetter365ss.kr/clinic-immune.html"
+    }
+   ],
+   "founder": {
+    "@id": "https://thebetter365ss.kr/#dr-yudeoksun"
+   },
+   "employee": [
+    {
+     "@id": "https://thebetter365ss.kr/#dr-yudeoksun"
+    },
+    {
+     "@id": "https://thebetter365ss.kr/#dr-kimjebeom"
+    },
+    {
+     "@id": "https://thebetter365ss.kr/#dr-leedayoung"
+    },
+    {
+     "@id": "https://thebetter365ss.kr/#dr-leesiwoo"
+    },
+    {
+     "@id": "https://thebetter365ss.kr/#dr-hwangtaehyung"
+    }
+   ]
   },
   {
-   "@type": "Place",
-   "name": "대구 달서구 성서"
-  },
-  {
-   "@type": "Place",
-   "name": "대구 달서구 이곡동"
-  }
- ],
- "availableService": [
-  {
-   "@type": "MedicalTherapy",
-   "name": "교통사고 후유증 치료",
-   "url": "https://thebetter365ss.kr/clinic-traffic.html"
-  },
-  {
-   "@type": "MedicalTherapy",
-   "name": "통증치료",
-   "url": "https://thebetter365ss.kr/clinic-pain.html"
-  },
-  {
-   "@type": "MedicalTherapy",
-   "name": "추나치료",
-   "url": "https://thebetter365ss.kr/clinic-chuna.html"
-  },
-  {
-   "@type": "MedicalTherapy",
-   "name": "한방 다이어트",
-   "url": "https://thebetter365ss.kr/clinic-diet.html"
-  },
-  {
-   "@type": "MedicalTherapy",
-   "name": "면역력·체질 보약",
-   "url": "https://thebetter365ss.kr/clinic-immune.html"
-  }
- ],
- "founder": {
-  "@type": "Person",
-  "name": "유덕순",
-  "jobTitle": "대표원장"
- },
- "employee": [
-  {
-   "@type": "Person",
+   "@type": [
+    "Person",
+    "Physician"
+   ],
+   "@id": "https://thebetter365ss.kr/#dr-yudeoksun",
    "name": "유덕순",
-   "jobTitle": "대표원장 · 한의사"
+   "jobTitle": "대표원장 · 한의사",
+   "image": "https://thebetter365ss.kr/img/dr-yudeoksun.jpg",
+   "url": "https://thebetter365ss.kr/#doctors",
+   "worksFor": {
+    "@id": "https://thebetter365ss.kr/#clinic"
+   },
+   "workLocation": {
+    "@id": "https://thebetter365ss.kr/#clinic"
+   }
   },
   {
-   "@type": "Person",
+   "@type": [
+    "Person",
+    "Physician"
+   ],
+   "@id": "https://thebetter365ss.kr/#dr-kimjebeom",
    "name": "김제범",
-   "jobTitle": "한의사"
+   "jobTitle": "한의사",
+   "image": "https://thebetter365ss.kr/img/dr-kimjebeom.jpg",
+   "url": "https://thebetter365ss.kr/#doctors",
+   "worksFor": {
+    "@id": "https://thebetter365ss.kr/#clinic"
+   },
+   "workLocation": {
+    "@id": "https://thebetter365ss.kr/#clinic"
+   }
   },
   {
-   "@type": "Person",
+   "@type": [
+    "Person",
+    "Physician"
+   ],
+   "@id": "https://thebetter365ss.kr/#dr-leedayoung",
    "name": "이다영",
-   "jobTitle": "한의사"
+   "jobTitle": "한의사",
+   "image": "https://thebetter365ss.kr/img/dr-leedayoung.jpg",
+   "url": "https://thebetter365ss.kr/#doctors",
+   "worksFor": {
+    "@id": "https://thebetter365ss.kr/#clinic"
+   },
+   "workLocation": {
+    "@id": "https://thebetter365ss.kr/#clinic"
+   }
   },
   {
-   "@type": "Person",
+   "@type": [
+    "Person",
+    "Physician"
+   ],
+   "@id": "https://thebetter365ss.kr/#dr-leesiwoo",
    "name": "이시우",
-   "jobTitle": "한의사"
+   "jobTitle": "한의사",
+   "image": "https://thebetter365ss.kr/img/dr-leesiwoo.jpg",
+   "url": "https://thebetter365ss.kr/#doctors",
+   "worksFor": {
+    "@id": "https://thebetter365ss.kr/#clinic"
+   },
+   "workLocation": {
+    "@id": "https://thebetter365ss.kr/#clinic"
+   }
   },
   {
-   "@type": "Person",
+   "@type": [
+    "Person",
+    "Physician"
+   ],
+   "@id": "https://thebetter365ss.kr/#dr-hwangtaehyung",
    "name": "황태형",
-   "jobTitle": "한의사"
+   "jobTitle": "한의사",
+   "image": "https://thebetter365ss.kr/img/dr-hwangtaehyung.jpg",
+   "url": "https://thebetter365ss.kr/#doctors",
+   "worksFor": {
+    "@id": "https://thebetter365ss.kr/#clinic"
+   },
+   "workLocation": {
+    "@id": "https://thebetter365ss.kr/#clinic"
+   }
   }
  ]
 }

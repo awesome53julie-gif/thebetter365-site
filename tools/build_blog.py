@@ -12,7 +12,16 @@ POSTS = ROOT / "blog" / "_posts"
 OUT = ROOT / "blog"
 DOMAIN = "https://thebetter365ss.kr"
 CLINIC_ID = DOMAIN + "/#clinic"
-TEMPLATE = ROOT / "privacy.html"  # 머리글·바닥글을 가져올 페이지
+TEMPLATE = ROOT / "privacy.html"
+CLINIC_REF = {"@type": "MedicalClinic", "@id": CLINIC_ID, "name": "더나은365한의원", "url": DOMAIN + "/"}
+# 메인(index.html) 구조화 데이터의 의사(Physician) ID와 연결. 의료진이 바뀌면 같이 수정
+DOCTORS = {"유덕순": "yudeoksun", "김제범": "kimjebeom", "이다영": "leedayoung", "이시우": "leesiwoo", "황태형": "hwangtaehyung"}
+
+
+def person(name):
+    if name in DOCTORS:
+        return {"@type": ["Person", "Physician"], "@id": f"{DOMAIN}/#dr-{DOCTORS[name]}", "name": name, "worksFor": CLINIC_REF}
+    return {"@type": "Person", "name": name, "worksFor": CLINIC_REF}  # 머리글·바닥글을 가져올 페이지
 
 STATIC_PAGES = [  # (경로, priority, changefreq)
     ("", 1.0, "weekly"),
@@ -189,16 +198,15 @@ def build():
     posts = sorted((parse_post(p) for p in POSTS.glob("*.md")), key=lambda p: p["date"], reverse=True)
     for p in posts:
         url = f"{DOMAIN}/blog/{p['slug']}.html"
-        author = ({"@type": "Person", "name": p["author"], "worksFor": {"@id": CLINIC_ID}}
-                  if p.get("author") else {"@id": CLINIC_ID})
+        author = person(p["author"]) if p.get("author") else CLINIC_REF
         article = {"@context": "https://schema.org", "@type": "BlogPosting", "headline": p["title"],
                    "description": p["description"], "datePublished": p["date"], "dateModified": p["updated"],
                    "inLanguage": "ko-KR", "mainEntityOfPage": url, "image": f"{DOMAIN}/img/og-image.jpg",
-                   "author": author, "publisher": {"@id": CLINIC_ID}}
+                   "author": author, "publisher": CLINIC_REF}
         if p.get("category"):
             article["articleSection"] = p["category"]
         if p.get("reviewed_by"):
-            article["reviewedBy"] = {"@type": "Person", "name": p["reviewed_by"]}
+            article["reviewedBy"] = person(p["reviewed_by"])
         ld = [article, crumbs([("홈", DOMAIN + "/"), ("건강정보", DOMAIN + "/blog/"), (p["title"], url)])]
         if p["faqs"]:
             ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
@@ -247,7 +255,7 @@ def build():
     url = DOMAIN + "/blog/"
     items = "".join(f"""<li class="post-card"><a href="{p['slug']}.html"><span class="cat">{html.escape(p.get('category', '글'))}</span><h2>{html.escape(p['title'])}</h2><p>{html.escape(p['description'])}</p><time datetime="{p['date']}">{kdate(p['date'])}</time></a></li>""" for p in posts)
     ld = [{"@context": "https://schema.org", "@type": "Blog", "name": "더나은365한의원 건강정보", "url": url,
-           "inLanguage": "ko-KR", "publisher": {"@id": CLINIC_ID},
+           "inLanguage": "ko-KR", "publisher": CLINIC_REF,
            "blogPost": [{"@type": "BlogPosting", "headline": p["title"], "url": f"{DOMAIN}/blog/{p['slug']}.html", "datePublished": p["date"]} for p in posts]},
           crumbs([("홈", DOMAIN + "/"), ("건강정보", url)])]
     page = head("건강정보 | 성서 더나은365한의원", "대구 달서구 성서 더나은365한의원 건강정보. 교통사고 후유증, 통증, 추나, 진료 이용 안내 등 한의원 진료에 대해 자주 받는 질문을 정리했습니다.", url, ld) + top + f"""<main id="top">
