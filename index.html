@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>더나은365한의원 | 대구 달서구 이곡동 한의원 · 365일 진료</title>
 <meta name="description" content="대구 달서구 계대동문로 124 국민연금네거리 더나은365한의원. 한의사 7명 진료, 365일 점심시간 없이 진료, 무료 주차 31대. 전화 053-581-0175">
+<meta name="theme-color" content="#ffe001">
+<meta property="og:type" content="website">
+<meta property="og:title" content="더나은365한의원 | 대구 달서구 365일 진료">
+<meta property="og:description" content="한의사 7명 · 365일 점심시간 없이 진료 · 무료 주차 31대. 대구 달서구 계대동문로 124 (국민연금네거리)">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23ffe001'/%3E%3Ctext x='32' y='42' font-size='26' font-weight='800' text-anchor='middle' font-family='sans-serif' fill='%231c1c1c'%3E365%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <script type="application/ld+json">
 {
@@ -13,6 +19,7 @@
   "name": "더나은365한의원",
   "medicalSpecialty": "TraditionalChineseMedicine",
   "telephone": "+82-53-581-0175",
+  "isAcceptingNewPatients": true,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "계대동문로 124, 2층",
@@ -22,7 +29,7 @@
   },
   "openingHoursSpecification": [
     {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "20:00"},
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "09:00", "closes": "15:00"}
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday","PublicHolidays"], "opens": "09:00", "closes": "15:00"}
   ]
 }
 </script>
@@ -124,8 +131,59 @@ nav a:hover{color:#9a8500}
 .info-box dl{display:grid;grid-template-columns:90px 1fr;gap:12px 8px;font-size:15px}
 .info-box dt{font-weight:700;color:#7a6b00}
 .info-box dd{color:var(--ink)}
-.map{border-radius:22px;min-height:300px;background:#eee;border:2px dashed #d6d6d0;display:flex;align-items:center;justify-content:center;color:#9a9a92;text-align:center;padding:20px;font-size:14px}
 @media(max-width:760px){.info-grid{grid-template-columns:1fr}}
+
+
+/* a11y */
+.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+:focus-visible{outline:3px solid #c9a800;outline-offset:2px;border-radius:6px}
+section[id]{scroll-margin-top:68px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* mobile menu */
+.menu-btn{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer;margin-left:6px}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--ink);margin:4px auto;transition:.2s}
+.nav-right{display:flex;align-items:center}
+@media(max-width:820px){
+  .menu-btn{display:block}
+  nav ul{position:absolute;top:60px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 10px 20px rgba(0,0,0,.06)}
+  nav ul.open{display:flex}
+  nav ul a{display:block;padding:14px 20px;border-top:1px solid var(--line)}
+  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+}
+
+/* live status */
+.status{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600;margin-bottom:18px}
+.status i{width:9px;height:9px;border-radius:50%;background:#bbb;flex:none}
+.status.open i{background:#1fa463;box-shadow:0 0 0 4px rgba(31,164,99,.18)}
+.status.closed i{background:#d24a3c}
+
+/* hours table */
+.hours{width:100%;border-collapse:collapse;margin-top:6px;font-size:15px}
+.hours th,.hours td{padding:11px 4px;border-bottom:1px solid #e3e3de;text-align:left}
+.hours th{font-weight:700;width:46%}
+.hours tr.today{background:var(--yellow-soft)}
+.hours tr.today th::after{content:" 오늘";font-size:11px;background:var(--yellow);padding:1px 6px;border-radius:6px;margin-left:6px;vertical-align:2px}
+
+/* map */
+.map-wrap{display:flex;flex-direction:column;gap:10px}
+.map-wrap iframe{width:100%;min-height:320px;flex:1;border:0;border-radius:22px;background:#eee}
+.map-links{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.map-links a{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;font-weight:700;font-size:15px}
+.map-links a:hover{border-color:var(--ink)}
+
+/* faq */
+.faq{margin-top:30px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 40px 20px 4px;font-weight:700;font-size:17px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-weight:800;background:var(--yellow);border-radius:6px;padding:0 7px;margin-right:10px}
+.faq summary::after{content:"+";position:absolute;right:8px;top:16px;font-size:24px;font-weight:400}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 4px 22px 38px;color:var(--sub)}
 
 footer{background:var(--ink);color:#bdbdbd;padding:40px 0 100px;font-size:14px}
 footer b{color:#fff}
@@ -142,20 +200,25 @@ footer .row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px}
 </style>
 </head>
 <body>
+<a class="skip" href="#top">본문 바로가기</a>
 
 <header>
   <div class="wrap nav">
     <a class="logo" href="#top"><i></i>더나은365한의원</a>
-    <nav>
-      <ul>
+    <nav aria-label="주요 메뉴">
+      <ul id="menu">
         <li><a href="#doctors">원장 소개</a></li>
         <li><a href="#philosophy">진료 철학</a></li>
         <li><a href="#process">진료 과정</a></li>
         <li><a href="#areas">진료 영역</a></li>
+        <li><a href="#faq">자주 묻는 질문</a></li>
         <li><a href="#visit">오시는 길</a></li>
       </ul>
     </nav>
-    <a class="call-btn" href="tel:0535810175">전화 상담</a>
+    <div class="nav-right">
+      <a class="call-btn" href="tel:0535810175">전화 상담</a>
+      <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-controls="menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -165,7 +228,8 @@ footer .row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">대구 달서구 · 국민연금네거리</span>
+      <span class="eyebrow">대구 달서구 · 국민연금네거리</span><br>
+      <div class="status" id="status" role="status"><i></i><span>오늘 진료시간을 확인하고 있어요</span></div>
       <h1>아플 땐 언제든,<br><mark>365일</mark> 진료하는<br>더나은365한의원</h1>
       <p>한의사 7명이 점심시간 없이, 주말과 공휴일에도 진료합니다. 아픈 이유를 먼저 살피고 몸에 맞는 치료를 안내해 드립니다.</p>
       <div class="cta">
@@ -260,7 +324,7 @@ footer .row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px}
 </section>
 
 <!-- GALLERY -->
-<section id="gallery">
+<section id="gallery" class="gray">
   <div class="wrap">
     <span class="eyebrow">GALLERY</span>
     <h2>한의원 둘러보기</h2>
@@ -276,6 +340,36 @@ footer .row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px}
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <span class="eyebrow">FAQ</span>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq">
+      <details>
+        <summary>주말이나 공휴일에도 진료하나요?</summary>
+        <p>네. 토요일 · 일요일 · 공휴일 모두 오전 9시부터 오후 3시까지 진료합니다. 평일은 오전 9시부터 오후 8시까지입니다.</p>
+      </details>
+      <details>
+        <summary>점심시간이 있나요?</summary>
+        <p>점심시간 없이 계속 진료합니다. 직장인분들도 점심시간을 이용해 편하게 내원하실 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>주차는 어떻게 하나요?</summary>
+        <p>건물에 무료 주차 31대가 가능합니다. 국민연금네거리 iM뱅크 이곡동지점 건물 2층으로 오시면 됩니다.</p>
+      </details>
+      <details>
+        <summary>예약하고 가야 하나요?</summary>
+        <p>053-581-0175로 전화 주시면 대기 상황과 진료 가능 시간을 안내해 드립니다.</p>
+      </details>
+      <details>
+        <summary>진료 받을 때 무엇을 준비하면 좋을까요?</summary>
+        <p>신분증을 지참해 주세요. 복용 중인 약이 있거나 다른 병원 검사 결과가 있다면 함께 가져오시면 진료에 도움이 됩니다.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- VISIT -->
 <section id="visit" class="gray">
   <div class="wrap">
@@ -283,18 +377,28 @@ footer .row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px}
     <h2>오시는 길</h2>
     <div class="info-grid">
       <div class="info-box">
-        <h3>진료 안내</h3>
+        <h3>진료 시간</h3>
+        <table class="hours" id="hours">
+          <tr data-days="1,2,3,4,5"><th>평일 (월–금)</th><td>09:00 – 20:00</td></tr>
+          <tr data-days="6"><th>토요일</th><td>09:00 – 15:00</td></tr>
+          <tr data-days="0"><th>일요일 · 공휴일</th><td>09:00 – 15:00</td></tr>
+          <tr><th>점심시간</th><td>없음</td></tr>
+        </table>
+        <h3 style="margin-top:28px">찾아오시는 길</h3>
         <dl>
-          <dt>평일</dt><dd>09:00 – 20:00</dd>
-          <dt>토 · 일 · 공휴일</dt><dd>09:00 – 15:00</dd>
-          <dt>점심시간</dt><dd>없음 (365일 진료)</dd>
-          <dt>전화</dt><dd><a href="tel:0535810175"><b>053-581-0175</b></a></dd>
           <dt>주소</dt><dd>대구 달서구 계대동문로 124, 2층<br>(국민연금네거리, iM뱅크 이곡동지점 2층)</dd>
           <dt>주차</dt><dd>무료 주차 31대</dd>
+          <dt>전화</dt><dd><a href="tel:0535810175"><b>053-581-0175</b></a></dd>
         </dl>
       </div>
-      <!-- TODO: 네이버/카카오 지도 퍼가기 코드를 여기에 붙여넣기 -->
-      <div class="map">지도 영역<br>(네이버 지도 또는 카카오맵 퍼가기 코드)</div>
+      <div class="map-wrap">
+        <iframe title="더나은365한의원 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=%EB%8C%80%EA%B5%AC%20%EB%8B%AC%EC%84%9C%EA%B5%AC%20%EA%B3%84%EB%8C%80%EB%8F%99%EB%AC%B8%EB%A1%9C%20124&amp;z=17&amp;output=embed"></iframe>
+        <div class="map-links">
+          <a href="https://map.naver.com/p/search/%EB%8D%94%EB%82%98%EC%9D%80365%ED%95%9C%EC%9D%98%EC%9B%90" target="_blank" rel="noopener">네이버 지도로 보기</a>
+          <a href="https://map.kakao.com/?q=%EB%8D%94%EB%82%98%EC%9D%80365%ED%95%9C%EC%9D%98%EC%9B%90" target="_blank" rel="noopener">카카오맵으로 보기</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -311,7 +415,8 @@ footer .row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px}
     <div class="row">
       <span>평일 09:00–20:00 · 토/일/공휴일 09:00–15:00 · 점심시간 없음</span>
     </div>
-    <div class="row"><span>© 더나은365한의원. All rights reserved.</span></div>
+    <div class="row"><span>대표자 유덕순</span><span>사업자등록번호 000-00-00000 <!-- TODO: 실제 번호로 교체 --></span></div>
+    <div class="row"><span>© <span id="year">2026</span> 더나은365한의원. All rights reserved.</span></div>
   </div>
 </footer>
 
@@ -320,5 +425,34 @@ footer .row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px}
   <a class="b" href="#visit">오시는 길</a>
 </div>
 
+<script>
+(function(){
+  // 모바일 메뉴
+  var btn=document.querySelector('.menu-btn'), menu=document.getElementById('menu');
+  function setMenu(open){menu.classList.toggle('open',open);btn.setAttribute('aria-expanded',open);btn.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기');}
+  btn.addEventListener('click',function(){setMenu(btn.getAttribute('aria-expanded')!=='true');});
+  menu.addEventListener('click',function(e){if(e.target.tagName==='A')setMenu(false);});
+
+  // 현재 진료 상태 (한국 시간 기준)
+  var p=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+  var g=function(t){return (p.find(function(x){return x.type===t;})||{}).value;};
+  var day=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday'));
+  var now=parseInt(g('hour'),10)*60+parseInt(g('minute'),10);
+  var weekday=day>=1&&day<=5, close=weekday?20*60:15*60, open=9*60;
+  var el=document.getElementById('status'), txt=el.querySelector('span');
+  var closeLabel=weekday?'오후 8시':'오후 3시';
+  if(now>=open&&now<close){
+    el.classList.add('open');
+    txt.textContent='지금 진료 중 · '+closeLabel+'까지'+(weekday?' (공휴일은 오후 3시까지)':'');
+  }else{
+    el.classList.add('closed');
+    txt.textContent=now<open?'진료 준비 중 · 오전 9시부터 진료':'오늘 진료 마감 · 내일 오전 9시부터 진료';
+  }
+  document.querySelectorAll('#hours tr[data-days]').forEach(function(tr){
+    if(tr.dataset.days.split(',').indexOf(String(day))>-1)tr.classList.add('today');
+  });
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
