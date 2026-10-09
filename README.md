@@ -1,88 +1,69 @@
-# 더나은365한의원 성서이곡 홈페이지
+# 더나은365한의원 홈페이지
 
-대구광역시 달서구 계대동문로 124, 2층 · 053-581-0175
+Next.js(App Router) + 정적 사이트 생성(SSG). `npm run build`를 하면 `out/` 폴더에 순수 HTML 사이트가 만들어지고, 어떤 웹호스팅에도 그대로 올릴 수 있습니다.
 
-별도 빌드 없이 그대로 열리는 정적 홈페이지입니다.
+## 실행
+```bash
+npm install
+npm run dev     # 개발 서버 http://localhost:3000
+npm run build   # out/ 생성 + 구조 검사
+```
 
-## 페이지
-| 파일 | 내용 |
+## 어디를 고치면 되나요?
+| 바꿀 것 | 파일 |
 |---|---|
-| `index.html` | 메인: 진료시간, 진료철학, 대표 진료, 둘러보기, 의료진, 오시는 길 |
-| `mission.html` | 핵심 진료철학 (진심 · 소통 · 신뢰) |
-| `clinic-traffic.html` | 교통사고 후유증 |
-| `clinic-pain.html` | 통증치료 |
-| `clinic-chuna.html` | 추나치료 |
-| `clinic-diet.html` | 다이어트 |
-| `clinic-immune.html` | 면역력 |
-| `privacy.html` · `terms.html` · `sitemap.html` | 개인정보 처리방침 · 이용약관 · 사이트맵 |
-| `styles.css` · `fonts/` | 공통 스타일 · Pretendard 글꼴 |
-| `robots.txt` · `sitemap.xml` · `llms.txt` | 검색엔진·AI 크롤러 수집 허용 · 페이지 목록 · AI용 사이트 요약 (sitemap.xml·llms.txt는 빌더가 자동 생성) |
-| `blog/` · `tools/build_blog.py` | 건강정보 글 · 글 생성 도구 |
-| `img/` | 사진 · 아이콘 · 로고 |
+| 병원 이름·주소·전화·진료시간·주차·교통 | `src/config/site.ts` (**이 파일에만** 적습니다) |
+| GA4·서치콘솔·Bing·네이버 확인 태그, 예약폼 받는 주소 | `src/config/site.ts` 또는 환경변수 (아래) |
+| 시술(진료) 페이지 원고 | `src/content/treatments/*.ts` |
+| 건강정보 글 | `src/content/posts/*.ts` |
+| 의료진 | `src/content/doctors.ts` |
+| 메인·의료진·진료철학·예약 페이지 FAQ | `src/content/pages.ts` |
+| 디자인 | `src/app/globals.css` |
 
-## 아직 채워야 할 부분
-- 유덕순 대표원장 학력 · 경력 (`index.html`의 `(학력 입력)`, `(경력·소속 학회 입력)`)
-- 한의사 2명 이름 (`index.html`의 `(이름 확인)`)
-- 개인정보 처리방침 · 이용약관 정식 문서 (`privacy.html`, `terms.html`)
-- 하단 "카톡상담" 버튼: 카카오톡 채널 주소가 생기면 링크 연결 (지금은 오시는 길로 이동)
-- 진료 상태 배지는 공휴일을 따로 구분하지 않습니다 (평일 공휴일에도 20시까지로 표시)
+## 원고 작성 규칙 (빌드 때 자동 검사)
+- 시술·글 페이지 본문: **질문형 H2 → 2~3문장 즉답 → 상세설명**. `QaSection` 타입으로 강제되고, 즉답 문장 수는 검사 스크립트가 셉니다.
+- FAQ는 페이지마다 **정확히 5개** (`Faqs` 타입). FAQPage 구조화 데이터가 자동으로 붙습니다.
+- 전문용어는 **환자 말을 앞에, 전문용어는 괄호로**: "손으로 척추·관절을 바로잡는 치료(추나요법)", "건강보험이 적용되지 않는 항목(비급여)"
+- 글자를 이미지로 넣지 않습니다. 모든 이미지에 무엇이 보이는지 설명하는 alt를 씁니다.
+- 병원 정보를 원고에 직접 쓰지 말고 `site.phone.display` 처럼 설정 값을 씁니다. 직접 쓰면 빌드가 실패합니다.
+- 의료광고 주의: 치료 효과 보장, 다른 병원과 비교, 환자 후기, "최고·유일·전문" 표현 금지.
 
-## 건강정보(블로그) 글 쓰기
-글은 홈페이지 안 `blog/` 폴더에 올라가 `thebetter365ss.kr/blog/...` 주소가 됩니다. 외부 서비스 없이 자사 도메인 자산으로 쌓입니다.
+새 시술 페이지는 `src/content/treatments/`에 파일을 하나 복사해 고치고 `index.ts` 목록에 추가하면 메뉴·사이트맵·스키마까지 자동으로 붙습니다.
 
-1. `blog/_posts/`에 `.md` 파일을 만듭니다 (기존 글을 복사해서 고치면 편합니다)
-2. 맨 위 정보 칸을 채웁니다
-   ```
-   ---
-   title: 글 제목 (검색어가 들어가게)
-   slug: 주소에-쓸-영문 (예: neck-pain-guide)
-   date: 2026-10-08
-   updated: 2026-11-01        ← 내용을 고쳤을 때만
-   description: 검색 결과에 나올 2~3문장 요약
-   category: 교통사고
-   author: 유덕순             ← 한의사 이름 (비우면 '더나은365한의원')
-   reviewed_by: 유덕순        ← 검수한 한의사 (선택)
-   related: clinic-traffic.html 교통사고 후유증 진료 안내
-   ---
-   ```
-3. 본문 작성 규칙: `## 질문형 소제목` → 바로 아래 첫 문장에 답. `| 표 |`로 핵심 정리, `- 목록`, `**굵게**`, `[링크](주소)`
-   `## 자주 묻는 질문` 아래 `### 질문` + 답 문단을 쓰면 FAQ 구조화 데이터가 자동으로 만들어집니다
-4. `python3 tools/build_blog.py` 실행 → 글 페이지, 글 목록, 메인 최신 글 3개, 사이트맵이 한 번에 갱신됩니다
+## `npm run build`가 확인하는 것 (`scripts/check-site.mjs`)
+`out/`의 HTML(=자바스크립트를 실행하지 않는 크롤러가 받는 문서)을 검사합니다.
+1. 본문 글자가 HTML에 들어 있는지
+2. h1 1개, 제목 단계 건너뛰기 없음
+3. 시술·글 페이지의 질문형 H2와 2~3문장 즉답
+4. FAQ 5개, FAQPage 질문 = 화면 질문
+5. 병원(MedicalClinic)·의사(Physician + worksFor)·BreadcrumbList·Article 스키마
+6. 모든 이미지의 서술형 alt
+7. 병원 정보가 설정 파일 밖에 적혀 있지 않은지
+8. sitemap.xml의 lastmod, robots.txt의 GPTBot·ClaudeBot·PerplexityBot·Google-Extended 허용
 
-주의: 치료 효과 보장, 다른 병원과 비교, 환자 후기, "최고·유일·전문" 같은 표현은 의료광고 규정 위반 소지가 있습니다.
-가격(비급여 진료비)은 확정된 금액만 적고, 바뀌면 바로 고쳐 주세요.
+## 구조화 데이터
+- 메인: 병원(`MedicalClinic`) + 의사 5명(`Physician`, `worksFor`로 병원 연결) + `WebSite` + `FAQPage`
+- 시술: `MedicalWebPage` + `BreadcrumbList` + `FAQPage`
+- 건강정보 글: `Article` (글쓴이·검수자가 의료진이면 의사 정보와 연결) + `BreadcrumbList` + `FAQPage`
+- 치과라면 `site.ts`의 `schemaType`을 `"Dentist"`로 바꾸면 됩니다. 한의원은 `MedicalClinic`이 맞습니다.
 
-## SEO
-코드에 적용된 것
-- 페이지별 검색어 제목: "성서 한의원", "성서 교통사고 한의원", "성서 추나치료" 등
-- canonical 주소, 공유 미리보기(OG) 이미지 `img/og-image.jpg`, 파비콘
-- 구조화 데이터: 한의원 정보(주소·전화·진료시간·진료과목), 경로(Breadcrumb), 진료별 FAQ
-- `robots.txt`, `sitemap.xml`
-- 내용이 준비 중인 개인정보 처리방침 · 이용약관은 검색 제외(noindex). 정식 문서를 넣으면 `noindex, follow`를 `index, follow`로 바꾸세요.
-- 글꼴을 CSS에서 분리해 첫 화면 로딩 속도 개선 (CSS 625KB → 34KB)
+## 사이트맵 수정일
+`sitemap.xml`의 lastmod는 각 페이지를 만드는 원고 파일의 **마지막 git 커밋 날짜**입니다(빌드한 날짜가 아님). 배포 서버에서 빌드할 때는 git 기록 전체가 필요합니다(GitHub Actions라면 `actions/checkout`에 `fetch-depth: 0`).
 
-모든 주소는 `https://thebetter365ss.kr` 기준입니다. 다른 도메인을 쓰면 전체 파일에서 이 주소를 바꿔 주세요.
+## 분석·검색 등록 태그 / 예약폼
+`src/config/site.ts`에 직접 넣거나, 빌드 환경변수로 넣습니다. 비어 있으면 태그를 출력하지 않습니다.
+```
+NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=...
+NEXT_PUBLIC_BING_SITE_VERIFICATION=...
+NEXT_PUBLIC_NAVER_SITE_VERIFICATION=...
+NEXT_PUBLIC_RESERVATION_ENDPOINT=https://formspree.io/f/xxxx   # 예약 신청을 받을 주소
+```
+정적 사이트라 예약 신청을 직접 저장할 서버가 없습니다. Formspree·Google Apps Script 같은 폼 수신 서비스 주소를 넣으면 이름·연락처가 그쪽으로 전달됩니다. 주소가 비어 있으면 폼은 보이되 제출 버튼이 꺼지고 전화 예약을 안내합니다.
 
-AI·검색엔진이 읽기 쉬운 구조 (콘텐츠 수정 시 지켜 주세요)
-- 제목은 h1 1개 → h2(섹션) → h3(하위 항목) 순서로. 단계를 건너뛰지 않기
-- h1에는 "누가(더나은365한의원) + 무엇(주제)"을 함께
-- h2·h3는 그 부분만 떼어 읽어도 뜻이 통하게: "한눈에 보기" ✗ → "추나요법 건강보험 적용 한눈에 보기" ✓, "옷을 갈아입어야 하나요?" ✗ → "추나치료 받을 때 옷을 갈아입어야 하나요?" ✓
-- 수정 후 `python3 tools/check_site.py`로 검사 (블로그 빌더는 자동 실행)
-- 핵심 정보는 이미지가 아닌 **텍스트**로. 이미지 속 글자는 alt와 캡션에도 같은 내용을 적기
-- 사실 정보는 표(`<table>` + 행 제목 `<th>`), 나열은 목록(`<ul>`), 질문은 Q&A(`<details>`)로
-- 진료 페이지 본문은 `<article>`, "다른 진료 보기"·예약 배너는 `<aside>`
-- 메인 "한눈에 보기" 표·FAQ와 구조화 데이터(JSON-LD)는 내용이 같아야 함. 진료시간 등이 바뀌면 둘 다 수정
-
-사이트 공개 후 직접 해야 하는 것 (검색 노출에 가장 중요)
-1. **네이버 서치어드바이저** (searchadvisor.naver.com): 사이트 등록 → 소유 확인용 `<meta name="naver-site-verification">` 태그를 받아 `index.html` `<head>`에 추가 → `sitemap.xml` 제출 → 웹 페이지 수집 요청
-2. **구글 서치 콘솔** (search.google.com/search-console): 같은 방식으로 등록 후 `sitemap.xml` 제출
-3. **네이버 플레이스**: 업체 정보의 홈페이지 주소를 이 사이트로 등록 (지역 검색은 플레이스 영향이 큼)
-4. 다음(카카오) 검색 등록: register.search.daum.net
-
-## 미리보기
-`index.html`을 브라우저로 열면 됩니다.
-
-## 배포
-GitHub Pages: 저장소 Settings → Pages → Branch `main` / `(root)`.
-도메인(thebetter365ss.kr)을 연결하려면 같은 화면의 Custom domain에 입력하고 DNS를 설정하세요.
-도메인이 연결되기 전까지는 canonical 주소가 아직 열리지 않는 도메인을 가리키므로, 검색 등록은 도메인 연결 후에 하세요.
+## 배포 전 확인
+- [ ] 이름이 비어 있는 한의사 2명 (`src/content/doctors.ts`)
+- [ ] 개인정보 처리방침·이용약관 정식 문서 (`src/app/privacy`, `src/app/terms`, 지금은 검색 제외)
+- [ ] 예약폼 동의 문구의 보유 기간이 실제 운영과 맞는지
+- [ ] 한의사가 시술·건강정보 원고 검토 → 글의 `reviewedBy`에 이름 기입
+- [ ] 도메인(thebetter365ss.kr) 연결 후 서치콘솔·네이버 서치어드바이저·Bing에 `sitemap.xml` 제출
