@@ -51,7 +51,7 @@ export function Header() {
                 </li>
               ))}
               <li>
-                <Link href="/reservation/">예약 신청</Link>
+                <Link href="/reservation/">예약 안내</Link>
               </li>
             </ul>
           </nav>

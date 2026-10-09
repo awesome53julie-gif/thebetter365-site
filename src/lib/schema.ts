@@ -42,6 +42,11 @@ export function clinic(): Json {
     })),
     areaServed: site.areaServed.map((name) => ({ "@type": "Place", name })),
     availableService: treatments.map((t) => ({ "@type": t.about.type, name: t.about.name, url: abs(`/treatments/${t.slug}/`) })),
+    potentialAction: {
+      "@type": "ReserveAction",
+      target: { "@type": "EntryPoint", urlTemplate: site.booking.naver, inLanguage: "ko-KR", actionPlatform: ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"] },
+      result: { "@type": "Reservation", name: `${site.name} 진료 예약` },
+    },
     amenityFeature: [{ "@type": "LocationFeatureSpecification", name: site.parking, value: true }],
     founder: { "@id": doctorId(namedDoctors[0].id) },
     employee: namedDoctors.map((d) => ({ "@id": doctorId(d.id) })),

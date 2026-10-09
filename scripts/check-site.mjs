@@ -104,7 +104,7 @@ for (const file of pages) {
 }
 
 // 7. NAP 단일 출처
-const napPatterns = [/581[-\s.]?0175/, /계대동문로/, /847-90-01582/];
+const napPatterns = [/581[-\s.]?0175/, /계대동문로/, /847-90-01582/, /bizes\/768850/];
 for (const f of walk(path.join(ROOT, "src"), (p) => /\.(ts|tsx)$/.test(p))) {
   const r = path.relative(ROOT, f).replace(/\\/g, "/");
   if (r === "src/config/site.ts") continue;

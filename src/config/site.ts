@@ -73,13 +73,10 @@ export const site = {
   },
   areaServed: ["대구광역시", "대구 달서구", "성서", "이곡동"],
 
-  // ── 예약폼 ─────────────────────────────────────────────
-  reservation: {
-    /**
-     * 예약 신청을 받을 주소 (예: Formspree, Google Apps Script 웹앱 URL).
-     * 비워 두면 폼은 보이지만 제출 버튼이 꺼지고 전화 예약을 안내합니다.
-     */
-    endpoint: process.env.NEXT_PUBLIC_RESERVATION_ENDPOINT ?? "",
+  // ── 예약 ───────────────────────────────────────────────
+  /** 네이버 예약 페이지. 모든 예약 버튼이 이 주소로 연결됩니다. */
+  booking: {
+    naver: "https://m.booking.naver.com/booking/13/bizes/768850?theme=place&lang=ko&area=pll",
   },
 
   // ── 분석·검색 등록 태그 슬롯 ───────────────────────────

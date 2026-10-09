@@ -32,7 +32,7 @@ export function Footer() {
             <li><Link href="/doctors/">의료진</Link></li>
             <li><Link href="/about/">진료철학</Link></li>
             <li><Link href="/blog/">건강정보</Link></li>
-            <li><Link href="/reservation/">예약 신청</Link></li>
+            <li><Link href="/reservation/">예약 안내</Link></li>
             <li><Link href="/privacy/">개인정보 처리방침</Link></li>
             <li><Link href="/terms/">이용약관</Link></li>
           </ul>

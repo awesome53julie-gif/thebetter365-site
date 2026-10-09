@@ -35,9 +35,9 @@ export default function Home() {
               한의사 {site.doctorCount}명이 365일 점심시간 없이 진료합니다. 평일은 저녁 {Number(weekday.closes.slice(0, 2)) - 12}시, 토·일·공휴일은 오후 {Number(weekend.closes.slice(0, 2)) - 12}시까지.
             </p>
             <div className="hero-cta">
-              <Link className="btn primary" href="/reservation/">
-                예약 신청
-              </Link>
+              <a className="btn primary" href={site.booking.naver} target="_blank" rel="noopener">
+                네이버 예약
+              </a>
               <a className="btn ghost" href={telHref}>
                 전화 {site.phone.display}
               </a>
