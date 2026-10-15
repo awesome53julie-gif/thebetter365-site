@@ -62,6 +62,21 @@ NEXT_PUBLIC_BING_SITE_VERIFICATION=...
 NEXT_PUBLIC_NAVER_SITE_VERIFICATION=...
 ```
 
+## 배포 (GitHub Pages → thebetter365ss.kr)
+`main` 브랜치에 올라오면 `.github/workflows/deploy.yml`이 자동으로 빌드·검사·배포합니다. 검사에 실패하면 배포되지 않습니다.
+
+처음 한 번만 설정:
+1. 저장소 Settings → Pages → Build and deployment → Source: **GitHub Actions**
+2. Settings → Pages → Custom domain: `thebetter365ss.kr` 입력 → 저장 → DNS 확인 후 **Enforce HTTPS** 체크
+3. 도메인 관리 업체(가비아·후이즈 등)의 DNS 설정에서
+   - `@`(thebetter365ss.kr) **A 레코드** 4개: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (기존 A 레코드는 삭제)
+   - `www` **CNAME**: `awesome53julie-gif.github.io`
+   - **MX·TXT 레코드는 건드리지 않습니다** (도메인 메일을 쓰고 있다면 그대로 유지)
+4. (권장) GitHub 계정 Settings → Pages → Verified domains 에서 도메인 소유 확인 TXT 레코드 추가
+5. 분석·검색 등록 값은 Settings → Secrets and variables → Actions → **Variables** 에 `NEXT_PUBLIC_GA4_ID` 등 같은 이름으로 넣습니다.
+
+DNS 변경은 반영까지 수 분~최대 48시간 걸립니다. 바꾸기 전에 기존 홈페이지 업체와의 계약·기존 사이트 백업을 먼저 확인하세요.
+
 ## 배포 전 확인
 - [ ] 이름이 비어 있는 한의사 2명 (`src/content/doctors.ts`)
 - [ ] 개인정보 처리방침·이용약관 정식 문서 (`src/app/privacy`, `src/app/terms`, 지금은 검색 제외)
